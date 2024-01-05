@@ -58,7 +58,9 @@ final class BoardCollectionViewController: UICollectionViewController {
   
   @objc
   func addNewSticky() {
-    let controller = NewStickyViewController(delegate: self, viewModel: NewStickyViewModelImp(repositoryNote: RepositoryNoteImp()))
+    //let localService: DummyDataLocalService = DummyDataLocalService.shared
+    let localService = CoreDataLocalService(context: (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext)
+    let controller = NewStickyViewController(delegate: self, viewModel: NewStickyViewModelImp(repositoryNote: RepositoryNoteImp(localDataService: localService), itemViewModel: nil))
     controller.title = "New Sticky"
     let newStickyNavigation = UINavigationController(rootViewController: controller)
     present(newStickyNavigation, animated: true)
@@ -81,6 +83,18 @@ extension BoardCollectionViewController {
   
   override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     viewModel.currentItemsBoardCount
+  }
+  
+  override func collectionView(
+    _ collectionView: UICollectionView,
+    didSelectItemAt indexPath: IndexPath
+  ) {
+    let itemViewModel = viewModel.getItemBoardViewModel(index: indexPath)
+    let localService = CoreDataLocalService(context: (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext)
+    let controller = NewStickyViewController(delegate: self, viewModel: NewStickyViewModelImp(repositoryNote: RepositoryNoteImp(localDataService: localService), itemViewModel: itemViewModel))
+    controller.title = "Edit Sticky"
+    let newStickyNavigation = UINavigationController(rootViewController: controller)
+    present(newStickyNavigation, animated: true)
   }
 }
 

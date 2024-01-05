@@ -64,13 +64,15 @@ final class NewStickyViewController: UIViewController {
     noteTextView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10).isActive = true
     noteTextView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10).isActive = true
     
+    noteTextView.text = viewModel.text
   }
   
   @objc
   private func saveNote() {
-    viewModel.saveData(description: noteTextView.text)
-    delegate?.didFinishSave()
-    dismiss(animated: true)
+    viewModel.saveData(description: noteTextView.text) { [weak self] isSuccess in
+      self?.delegate?.didFinishSave()
+      self?.dismiss(animated: true)
+    }
   }
 }
 

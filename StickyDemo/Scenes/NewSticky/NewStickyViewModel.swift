@@ -6,13 +6,24 @@
 //
 
 protocol NewStickyViewModel {
-  func saveData(description: String)
+  var text: String { get }
+  func saveData(description: String, completion: @escaping (Bool) -> Void)
 }
 
 struct NewStickyViewModelImp: NewStickyViewModel {
   let repositoryNote: RepositoryNote
+  let itemViewModel: ItemBoardViewModel?
   
-  func saveData(description: String) {
-    repositoryNote.saveNote(description: description)
+  var text: String {
+    itemViewModel?.description ?? ""
+  }
+  
+  func saveData(description: String, completion: @escaping (Bool) -> Void) {
+    if let itemViewModel = itemViewModel {
+      repositoryNote.updateNote(uuid: itemViewModel.id, description: description, completion: completion)
+    } else {
+      repositoryNote.saveNote(description: description, completion: completion)
+    }
+    
   }
 }

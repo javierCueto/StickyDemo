@@ -31,16 +31,22 @@ final class BoardViewModelImp: BoardViewModel {
   }
   
   func deleteItemBoardViewModel(uuid: String) {
-    
+    repositoryNotes.deleteNote(uuid: uuid) { [weak self] notes in
+      self?.loadNewData()
+    }
   }
   
   func viewDidLoad() {
-    notes = repositoryNotes.allNotes()
+    repositoryNotes.allNotes(completion: { [weak self] notes in
+      self?.notes = notes
+      self?.options.send(.reloadData)
+    })
   }
   
   func loadNewData() {
-    notes = repositoryNotes.allNotes()
-    options.send(.reloadData)
+    repositoryNotes.allNotes(completion: { [weak self] notes in
+      self?.notes = notes
+      self?.options.send(.reloadData)
+    })
   }
-  
 }

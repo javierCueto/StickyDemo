@@ -18,7 +18,6 @@
 		0FD584822B44F5D000390E2E /* BoardSceneFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD584812B44F5D000390E2E /* BoardSceneFactory.swift */; };
 		0FD584852B46509300390E2E /* View+ScreenSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD584842B46509300390E2E /* View+ScreenSize.swift */; };
 		0FD584892B46522F00390E2E /* ItemBoardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD584882B46522F00390E2E /* ItemBoardViewModel.swift */; };
-		0FD5848B2B4652AB00390E2E /* BoardViewModelDummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD5848A2B4652AB00390E2E /* BoardViewModelDummy.swift */; };
 		0FD5848D2B46557D00390E2E /* BoardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD5848C2B46557D00390E2E /* BoardCollectionViewCell.swift */; };
 		0FD584902B4658B000390E2E /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD5848F2B4658B000390E2E /* Note.swift */; };
 		0FD584922B47910300390E2E /* BoardViewModelOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD584912B47910300390E2E /* BoardViewModelOptions.swift */; };
@@ -27,6 +26,8 @@
 		0FD584982B47A09C00390E2E /* RepositoryNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD584972B47A09C00390E2E /* RepositoryNote.swift */; };
 		0FD5849A2B47A4FB00390E2E /* BoardViewModelImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD584992B47A4FB00390E2E /* BoardViewModelImp.swift */; };
 		0FD5849C2B47A57500390E2E /* SNote+Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD5849B2B47A57500390E2E /* SNote+Note.swift */; };
+		0FD5849F2B47AEC400390E2E /* LocalDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD5849E2B47AEC400390E2E /* LocalDataService.swift */; };
+		0FD584A12B47B3AC00390E2E /* DummyLocalDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD584A02B47B3AC00390E2E /* DummyLocalDataService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,7 +55,6 @@
 		0FD584812B44F5D000390E2E /* BoardSceneFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardSceneFactory.swift; sourceTree = "<group>"; };
 		0FD584842B46509300390E2E /* View+ScreenSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+ScreenSize.swift"; sourceTree = "<group>"; };
 		0FD584882B46522F00390E2E /* ItemBoardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemBoardViewModel.swift; sourceTree = "<group>"; };
-		0FD5848A2B4652AB00390E2E /* BoardViewModelDummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardViewModelDummy.swift; sourceTree = "<group>"; };
 		0FD5848C2B46557D00390E2E /* BoardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardCollectionViewCell.swift; sourceTree = "<group>"; };
 		0FD5848F2B4658B000390E2E /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		0FD584912B47910300390E2E /* BoardViewModelOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardViewModelOptions.swift; sourceTree = "<group>"; };
@@ -63,6 +63,8 @@
 		0FD584972B47A09C00390E2E /* RepositoryNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryNote.swift; sourceTree = "<group>"; };
 		0FD584992B47A4FB00390E2E /* BoardViewModelImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardViewModelImp.swift; sourceTree = "<group>"; };
 		0FD5849B2B47A57500390E2E /* SNote+Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SNote+Note.swift"; sourceTree = "<group>"; };
+		0FD5849E2B47AEC400390E2E /* LocalDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDataService.swift; sourceTree = "<group>"; };
+		0FD584A02B47B3AC00390E2E /* DummyLocalDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyLocalDataService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				0FD584762B44F19300390E2E /* CoreData */,
+				0FD584A02B47B3AC00390E2E /* DummyLocalDataService.swift */,
 			);
 			path = Storage;
 			sourceTree = "<group>";
@@ -185,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				0FD584462B44EEBA00390E2E /* StickyDemo.xcdatamodeld */,
+				0FD5849E2B47AEC400390E2E /* LocalDataService.swift */,
 			);
 			path = DB;
 			sourceTree = "<group>";
@@ -248,7 +252,6 @@
 			children = (
 				0FD5847E2B44F36A00390E2E /* BoardViewModel.swift */,
 				0FD584882B46522F00390E2E /* ItemBoardViewModel.swift */,
-				0FD5848A2B4652AB00390E2E /* BoardViewModelDummy.swift */,
 				0FD584912B47910300390E2E /* BoardViewModelOptions.swift */,
 				0FD584992B47A4FB00390E2E /* BoardViewModelImp.swift */,
 			);
@@ -385,7 +388,6 @@
 				0FD5848D2B46557D00390E2E /* BoardCollectionViewCell.swift in Sources */,
 				0FD584942B47966300390E2E /* NewStickyViewController.swift in Sources */,
 				0FD584922B47910300390E2E /* BoardViewModelOptions.swift in Sources */,
-				0FD5848B2B4652AB00390E2E /* BoardViewModelDummy.swift in Sources */,
 				0FD5849C2B47A57500390E2E /* SNote+Note.swift in Sources */,
 				0FD5847B2B44F33900390E2E /* BoardCollectionViewController.swift in Sources */,
 				0FD584822B44F5D000390E2E /* BoardSceneFactory.swift in Sources */,
@@ -393,9 +395,11 @@
 				0FD584962B4796E000390E2E /* NewStickyViewModel.swift in Sources */,
 				0FD584402B44EEBA00390E2E /* SceneDelegate.swift in Sources */,
 				0FD584902B4658B000390E2E /* Note.swift in Sources */,
+				0FD5849F2B47AEC400390E2E /* LocalDataService.swift in Sources */,
 				0FD5849A2B47A4FB00390E2E /* BoardViewModelImp.swift in Sources */,
 				0FD584482B44EEBA00390E2E /* StickyDemo.xcdatamodeld in Sources */,
 				0FD584892B46522F00390E2E /* ItemBoardViewModel.swift in Sources */,
+				0FD584A12B47B3AC00390E2E /* DummyLocalDataService.swift in Sources */,
 				0FD5847F2B44F36A00390E2E /* BoardViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
