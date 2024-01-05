@@ -9,11 +9,15 @@ struct ItemBoardViewModel {
   private let note: Note
   
   var date: String {
-    note.date.formatted(date: .abbreviated, time: .complete)
+    note.date.formatted()
   }
   
   var description: String {
     note.description
+  }
+  
+  var id: String {
+    note.uuid
   }
   
   init(note: Note) {

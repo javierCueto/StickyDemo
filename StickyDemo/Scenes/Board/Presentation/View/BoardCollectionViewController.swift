@@ -6,13 +6,14 @@
 //
 
 import UIKit
+import Combine
 
 final class BoardCollectionViewController: UICollectionViewController {
   //MARK: Public Variables
   
   //MARK: Private Variables
   private let viewModel: BoardViewModel
-  
+  private var cancellables: Set<AnyCancellable> = []
   //MARK: LifeCycle
   init(layout: UICollectionViewFlowLayout, viewModel: BoardViewModel) {
     self.viewModel = viewModel
@@ -26,12 +27,29 @@ final class BoardCollectionViewController: UICollectionViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     configUserInterface()
+    configSuscriptions()
+    viewModel.viewDidLoad()
   }
   
   //MARK: Helpers
   private func configUserInterface() {
     view.backgroundColor = .systemBackground
     collectionView.register(BoardCollectionViewCell.self, forCellWithReuseIdentifier: "cellID")
+    
+  }
+  
+  func configSuscriptions() {
+    viewModel.options.sink { [weak self] options in
+      guard let self = self else {
+        return
+      }
+      switch options {
+      case .reloadData:
+        collectionView.reloadData()
+      case .viewDidLoad:
+        print("something here")
+      }
+    }.store(in: &cancellables)
   }
 }
 
@@ -44,11 +62,19 @@ extension BoardCollectionViewController {
     guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellID", for: indexPath) as? BoardCollectionViewCell else { return UICollectionViewCell() }
     
     let itemViewModel = viewModel.getItemBoardViewModel(index: indexPath)
-    cell.setData(viewModel: itemViewModel)
+    cell.viewModel = itemViewModel
+    cell.delegate = self
     return cell
   }
   
   override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     viewModel.currentItemsBoardCount
+  }
+}
+
+//MARK: BoardCollectionViewController+BoardCollectionViewCellDelegate
+extension BoardCollectionViewController: BoardCollectionViewCellDelegate {
+  func didCloseButton(uuid: String) {
+    viewModel.deleteItemBoardViewModel(uuid: uuid)
   }
 }

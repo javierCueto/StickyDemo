@@ -7,7 +7,27 @@
 
 import UIKit
 
+protocol BoardCollectionViewCellDelegate: AnyObject {
+  func didCloseButton(uuid: String)
+}
+
 final class BoardCollectionViewCell: UICollectionViewCell {
+  
+  weak var delegate: BoardCollectionViewCellDelegate?
+  
+  var viewModel: ItemBoardViewModel? {
+    didSet {
+      reloadData()
+    }
+  }
+  
+  let closeButton: UIButton = {
+    let button = UIButton(type: .close)
+    button.translatesAutoresizingMaskIntoConstraints = false
+    button.heightAnchor.constraint(equalToConstant: 20).isActive = true
+    button.widthAnchor.constraint(equalToConstant: 20).isActive = true
+    return button
+  }()
   
   let topDateView: UIView = {
     let view = UIView()
@@ -55,6 +75,12 @@ final class BoardCollectionViewCell: UICollectionViewCell {
     topDateView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
     topDateView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
     
+    topDateView.addSubview(closeButton)
+    closeButton.centerYAnchor.constraint(equalTo: topDateView.centerYAnchor).isActive = true
+    closeButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -4).isActive = true
+    
+    closeButton.addAction(closeButtonAction(), for: .touchUpInside)
+    
     topDateView.addSubview(dateLabel)
     dateLabel.topAnchor.constraint(equalTo: topDateView.topAnchor).isActive = true
     dateLabel.leadingAnchor.constraint(equalTo: topDateView.leadingAnchor, constant: 10).isActive = true
@@ -77,9 +103,14 @@ final class BoardCollectionViewCell: UICollectionViewCell {
     clipsToBounds = true
   }
   
-  func setData(viewModel: ItemBoardViewModel) {
-    dateLabel.text = viewModel.date
-    descriptionLabel.text = viewModel.description
+  func reloadData() {
+    dateLabel.text = viewModel?.date
+    descriptionLabel.text = viewModel?.description
   }
   
+  private func closeButtonAction() -> UIAction {
+    UIAction { [weak self] _ in
+      self?.delegate?.didCloseButton(uuid: self?.viewModel?.id ?? "")
+    }
+  }
 }

@@ -21,6 +21,7 @@
 		0FD5848B2B4652AB00390E2E /* BoardViewModelDummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD5848A2B4652AB00390E2E /* BoardViewModelDummy.swift */; };
 		0FD5848D2B46557D00390E2E /* BoardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD5848C2B46557D00390E2E /* BoardCollectionViewCell.swift */; };
 		0FD584902B4658B000390E2E /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD5848F2B4658B000390E2E /* Note.swift */; };
+		0FD584922B47910300390E2E /* BoardViewModelOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD584912B47910300390E2E /* BoardViewModelOptions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		0FD5848A2B4652AB00390E2E /* BoardViewModelDummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardViewModelDummy.swift; sourceTree = "<group>"; };
 		0FD5848C2B46557D00390E2E /* BoardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardCollectionViewCell.swift; sourceTree = "<group>"; };
 		0FD5848F2B4658B000390E2E /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
+		0FD584912B47910300390E2E /* BoardViewModelOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardViewModelOptions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -233,6 +235,7 @@
 				0FD5847E2B44F36A00390E2E /* BoardViewModel.swift */,
 				0FD584882B46522F00390E2E /* ItemBoardViewModel.swift */,
 				0FD5848A2B4652AB00390E2E /* BoardViewModelDummy.swift */,
+				0FD584912B47910300390E2E /* BoardViewModelOptions.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -356,6 +359,7 @@
 			files = (
 				0FD5843E2B44EEBA00390E2E /* AppDelegate.swift in Sources */,
 				0FD5848D2B46557D00390E2E /* BoardCollectionViewCell.swift in Sources */,
+				0FD584922B47910300390E2E /* BoardViewModelOptions.swift in Sources */,
 				0FD5848B2B4652AB00390E2E /* BoardViewModelDummy.swift in Sources */,
 				0FD5847B2B44F33900390E2E /* BoardCollectionViewController.swift in Sources */,
 				0FD584822B44F5D000390E2E /* BoardSceneFactory.swift in Sources */,

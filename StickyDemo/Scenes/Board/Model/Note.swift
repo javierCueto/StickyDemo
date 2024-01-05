@@ -8,6 +8,7 @@
 import Foundation
 
 struct Note {
+  let uuid: String
   let date: Date
   let description: String
 }
