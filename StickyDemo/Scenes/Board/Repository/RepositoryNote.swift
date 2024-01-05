@@ -18,6 +18,7 @@ protocol RepositoryNote {
 final class RepositoryNoteImp: RepositoryNote  {
   
   private let localDataService: LocalDataService
+  //private let remoteDataService: ApiServices
   
   init(localDataService: LocalDataService) {
     self.localDataService = localDataService

@@ -28,6 +28,7 @@
 		0FD5849C2B47A57500390E2E /* SNote+Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD5849B2B47A57500390E2E /* SNote+Note.swift */; };
 		0FD5849F2B47AEC400390E2E /* LocalDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD5849E2B47AEC400390E2E /* LocalDataService.swift */; };
 		0FD584A12B47B3AC00390E2E /* DummyLocalDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD584A02B47B3AC00390E2E /* DummyLocalDataService.swift */; };
+		0FD584A52B489BEF00390E2E /* NewStickySceneFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD584A42B489BEF00390E2E /* NewStickySceneFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		0FD5849B2B47A57500390E2E /* SNote+Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SNote+Note.swift"; sourceTree = "<group>"; };
 		0FD5849E2B47AEC400390E2E /* LocalDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDataService.swift; sourceTree = "<group>"; };
 		0FD584A02B47B3AC00390E2E /* DummyLocalDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyLocalDataService.swift; sourceTree = "<group>"; };
+		0FD584A42B489BEF00390E2E /* NewStickySceneFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewStickySceneFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,8 +209,8 @@
 		0FD584792B44F2F700390E2E /* NewSticky */ = {
 			isa = PBXGroup;
 			children = (
-				0FD584932B47966300390E2E /* NewStickyViewController.swift */,
-				0FD584952B4796E000390E2E /* NewStickyViewModel.swift */,
+				0FD584A32B489BC300390E2E /* Composition */,
+				0FD584A22B489BBA00390E2E /* Presentation */,
 			);
 			path = NewSticky;
 			sourceTree = "<group>";
@@ -281,6 +283,23 @@
 				0FD5849B2B47A57500390E2E /* SNote+Note.swift */,
 			);
 			path = DTO;
+			sourceTree = "<group>";
+		};
+		0FD584A22B489BBA00390E2E /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				0FD584952B4796E000390E2E /* NewStickyViewModel.swift */,
+				0FD584932B47966300390E2E /* NewStickyViewController.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		0FD584A32B489BC300390E2E /* Composition */ = {
+			isa = PBXGroup;
+			children = (
+				0FD584A42B489BEF00390E2E /* NewStickySceneFactory.swift */,
+			);
+			path = Composition;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -389,6 +408,7 @@
 				0FD584942B47966300390E2E /* NewStickyViewController.swift in Sources */,
 				0FD584922B47910300390E2E /* BoardViewModelOptions.swift in Sources */,
 				0FD5849C2B47A57500390E2E /* SNote+Note.swift in Sources */,
+				0FD584A52B489BEF00390E2E /* NewStickySceneFactory.swift in Sources */,
 				0FD5847B2B44F33900390E2E /* BoardCollectionViewController.swift in Sources */,
 				0FD584822B44F5D000390E2E /* BoardSceneFactory.swift in Sources */,
 				0FD584852B46509300390E2E /* View+ScreenSize.swift in Sources */,

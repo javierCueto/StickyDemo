@@ -23,6 +23,7 @@ final class NewStickyViewController: UIViewController {
     textView.heightAnchor.constraint(equalToConstant: 300).isActive = true
     textView.font = .systemFont(ofSize: 14)
     textView.backgroundColor = .systemBackground.withAlphaComponent(0.1)
+    textView.textColor = .black
     return textView
   }()
   
@@ -52,6 +53,7 @@ final class NewStickyViewController: UIViewController {
     navigationItem.rightBarButtonItem = addBarButtonItem
     let appearance = UINavigationBarAppearance()
     appearance.backgroundColor = .systemYellow.withAlphaComponent(0.6)
+    appearance.titleTextAttributes = [.foregroundColor: UIColor.black]
     
     navigationController?.navigationBar.tintColor = .white
     navigationController?.navigationBar.standardAppearance = appearance

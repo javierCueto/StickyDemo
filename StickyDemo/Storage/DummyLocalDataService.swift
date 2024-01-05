@@ -9,10 +9,6 @@ import Foundation
 
 final class DummyDataLocalService: LocalDataService {
   private var notes: [Note] = []
-  
-  public static var shared: DummyDataLocalService = DummyDataLocalService()
-  
-  private init() { }
 
   func saveNote(description: String, completion: @escaping (Bool) -> Void) {
     let note = Note(uuid: UUID().uuidString, date: Date(), description: description)

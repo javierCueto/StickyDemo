@@ -11,6 +11,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
   
   var window: UIWindow?
   var navigation: UINavigationController!
+  lazy var dummyDataLocalService: DummyDataLocalService = DummyDataLocalService()
+  lazy var coreDataLocalService = CoreDataLocalService(context: (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext)
+  var boardSceneFactory: BoardSceneFactory = BoardSceneFactory()
   
   
   func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
@@ -19,7 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
     guard let windowScene = (scene as? UIWindowScene) else { return }
     window = UIWindow(windowScene: windowScene)
-    navigation = UINavigationController(rootViewController: BoardSceneFactory().makeBoardScene())
+    navigation = UINavigationController(rootViewController: boardSceneFactory.makeBoardScene(localServices: coreDataLocalService))
     window?.rootViewController = navigation
     window?.makeKeyAndVisible()
   }

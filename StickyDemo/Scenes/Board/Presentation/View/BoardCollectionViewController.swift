@@ -14,9 +14,12 @@ final class BoardCollectionViewController: UICollectionViewController {
   //MARK: Private Variables
   private let viewModel: BoardViewModel
   private var cancellables: Set<AnyCancellable> = []
+  private let newStickySceneFactory: NewStickySceneFactory
+  
   //MARK: LifeCycle
-  init(layout: UICollectionViewFlowLayout, viewModel: BoardViewModel) {
+  init(layout: UICollectionViewFlowLayout, viewModel: BoardViewModel, newStickySceneFactory: NewStickySceneFactory) {
     self.viewModel = viewModel
+    self.newStickySceneFactory = newStickySceneFactory
     super.init(collectionViewLayout: layout)
   }
   
@@ -58,12 +61,8 @@ final class BoardCollectionViewController: UICollectionViewController {
   
   @objc
   func addNewSticky() {
-    let localService: DummyDataLocalService = DummyDataLocalService.shared
-    //let localService = CoreDataLocalService(context: (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext)
-    let controller = NewStickyViewController(delegate: self, viewModel: NewStickyViewModelImp(repositoryNote: RepositoryNoteImp(localDataService: localService), itemViewModel: nil))
-    controller.title = "New Sticky"
-    let newStickyNavigation = UINavigationController(rootViewController: controller)
-    present(newStickyNavigation, animated: true)
+    let controller = newStickySceneFactory.makeNewStickyViewController(title: "New Sticky" ,delegate: self)
+    present(controller, animated: true)
   }
 }
 
@@ -90,12 +89,8 @@ extension BoardCollectionViewController {
     didSelectItemAt indexPath: IndexPath
   ) {
     let itemViewModel = viewModel.getItemBoardViewModel(index: indexPath)
-    let localService: DummyDataLocalService = DummyDataLocalService.shared
-    //let localService = CoreDataLocalService(context: (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext)
-    let controller = NewStickyViewController(delegate: self, viewModel: NewStickyViewModelImp(repositoryNote: RepositoryNoteImp(localDataService: localService), itemViewModel: itemViewModel))
-    controller.title = "Edit Sticky"
-    let newStickyNavigation = UINavigationController(rootViewController: controller)
-    present(newStickyNavigation, animated: true)
+    let controller = newStickySceneFactory.makeNewStickyViewController(title: "Edit Sticky" ,itemViewModel: itemViewModel,delegate: self)
+    present(controller, animated: true)
   }
 }
 
@@ -105,8 +100,6 @@ extension BoardCollectionViewController: BoardCollectionViewCellDelegate {
     viewModel.deleteItemBoardViewModel(uuid: uuid)
   }
 }
-
-
 //MARK: BoardCollectionViewController+NewStickyViewControllerDelegate
 extension BoardCollectionViewController: NewStickyViewControllerDelegate {
   func didFinishSave() {
