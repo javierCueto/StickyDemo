@@ -12,9 +12,7 @@ final class DummyDataLocalService: LocalDataService {
   
   public static var shared: DummyDataLocalService = DummyDataLocalService()
   
-  private init() {
-    
-  }
+  private init() { }
 
   func saveNote(description: String, completion: @escaping (Bool) -> Void) {
     let note = Note(uuid: UUID().uuidString, date: Date(), description: description)

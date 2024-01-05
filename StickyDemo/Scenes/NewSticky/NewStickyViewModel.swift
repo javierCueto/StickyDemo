@@ -20,7 +20,11 @@ struct NewStickyViewModelImp: NewStickyViewModel {
   
   func saveData(description: String, completion: @escaping (Bool) -> Void) {
     if let itemViewModel = itemViewModel {
-      repositoryNote.updateNote(uuid: itemViewModel.id, description: description, completion: completion)
+      repositoryNote
+        .updateNote(
+          uuid: itemViewModel.id, 
+          description: description,
+          completion: completion)
     } else {
       repositoryNote.saveNote(description: description, completion: completion)
     }
