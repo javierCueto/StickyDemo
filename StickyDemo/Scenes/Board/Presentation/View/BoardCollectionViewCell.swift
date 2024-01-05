@@ -34,7 +34,7 @@ final class BoardCollectionViewCell: UICollectionViewCell {
     view.translatesAutoresizingMaskIntoConstraints = false
     view.heightAnchor.constraint(equalToConstant: 30).isActive = true
     view.backgroundColor = .systemGray6
-    view.backgroundColor = .systemYellow.withAlphaComponent(0.5)
+    view.backgroundColor = .systemYellow.withAlphaComponent(0.6)
     return view
   }()
   
@@ -57,6 +57,7 @@ final class BoardCollectionViewCell: UICollectionViewCell {
     let label = UILabel()
     label.translatesAutoresizingMaskIntoConstraints = false
     label.numberOfLines = 0
+    label.textColor = .black
     return label
   }()
   

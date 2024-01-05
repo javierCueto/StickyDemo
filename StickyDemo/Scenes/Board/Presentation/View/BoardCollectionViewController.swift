@@ -36,6 +36,10 @@ final class BoardCollectionViewController: UICollectionViewController {
     view.backgroundColor = .systemBackground
     collectionView.register(BoardCollectionViewCell.self, forCellWithReuseIdentifier: "cellID")
     
+    let addBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewSticky))
+    addBarButtonItem.tintColor = .systemYellow
+    
+    navigationItem.rightBarButtonItem = addBarButtonItem
   }
   
   func configSuscriptions() {
@@ -50,6 +54,14 @@ final class BoardCollectionViewController: UICollectionViewController {
         print("something here")
       }
     }.store(in: &cancellables)
+  }
+  
+  @objc
+  func addNewSticky() {
+    let controller = NewStickyViewController(delegate: self)
+    controller.title = "New Sticky"
+    let newStickyNavigation = UINavigationController(rootViewController: controller)
+    present(newStickyNavigation, animated: true)
   }
 }
 
@@ -76,5 +88,13 @@ extension BoardCollectionViewController {
 extension BoardCollectionViewController: BoardCollectionViewCellDelegate {
   func didCloseButton(uuid: String) {
     viewModel.deleteItemBoardViewModel(uuid: uuid)
+  }
+}
+
+
+//MARK: BoardCollectionViewController+NewStickyViewControllerDelegate
+extension BoardCollectionViewController: NewStickyViewControllerDelegate {
+  func didFinishSave() {
+    collectionView.reloadData()
   }
 }
