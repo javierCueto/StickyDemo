@@ -14,4 +14,5 @@ protocol BoardViewModel {
   func getItemBoardViewModel(index: IndexPath) -> ItemBoardViewModel
   func deleteItemBoardViewModel(uuid: String)
   func viewDidLoad()
+  func loadNewData()
 }

@@ -50,8 +50,17 @@ final class BoardCollectionViewCell: UICollectionViewCell {
     let label = UILabel()
     label.translatesAutoresizingMaskIntoConstraints = false
     label.font = .systemFont(ofSize: 8, weight: .light)
+
     return label
   }()
+  
+  let labelStackView: UIStackView = {
+    let stackView = UIStackView()
+    stackView.translatesAutoresizingMaskIntoConstraints = false
+    stackView.alignment = .top
+    return stackView
+  }()
+  
   
   let descriptionLabel: UILabel = {
     let label = UILabel()
@@ -94,11 +103,13 @@ final class BoardCollectionViewCell: UICollectionViewCell {
     mainView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
     mainView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
     
-    mainView.addSubview(descriptionLabel)
-    descriptionLabel.topAnchor.constraint(equalTo: mainView.topAnchor, constant: 10).isActive = true
-    descriptionLabel.leadingAnchor.constraint(equalTo: mainView.leadingAnchor, constant: 10).isActive = true
-    descriptionLabel.trailingAnchor.constraint(equalTo: mainView.trailingAnchor, constant: -10).isActive = true
-    descriptionLabel.bottomAnchor.constraint(equalTo: mainView.bottomAnchor, constant: -10).isActive = true
+    mainView.addSubview(labelStackView)
+    labelStackView.topAnchor.constraint(equalTo: mainView.topAnchor, constant: 10).isActive = true
+    labelStackView.leadingAnchor.constraint(equalTo: mainView.leadingAnchor, constant: 10).isActive = true
+    labelStackView.trailingAnchor.constraint(equalTo: mainView.trailingAnchor, constant: -10).isActive = true
+    labelStackView.bottomAnchor.constraint(equalTo: mainView.bottomAnchor, constant: -10).isActive = true
+    
+    labelStackView.addArrangedSubview(descriptionLabel)
     
     layer.cornerRadius = 5
     clipsToBounds = true

@@ -10,7 +10,9 @@ protocol NewStickyViewModel {
 }
 
 struct NewStickyViewModelImp: NewStickyViewModel {
+  let repositoryNote: RepositoryNote
+  
   func saveData(description: String) {
-    
+    repositoryNote.saveNote(description: description)
   }
 }

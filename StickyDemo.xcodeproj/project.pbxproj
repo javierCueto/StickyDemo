@@ -25,6 +25,8 @@
 		0FD584942B47966300390E2E /* NewStickyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD584932B47966300390E2E /* NewStickyViewController.swift */; };
 		0FD584962B4796E000390E2E /* NewStickyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD584952B4796E000390E2E /* NewStickyViewModel.swift */; };
 		0FD584982B47A09C00390E2E /* RepositoryNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD584972B47A09C00390E2E /* RepositoryNote.swift */; };
+		0FD5849A2B47A4FB00390E2E /* BoardViewModelImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD584992B47A4FB00390E2E /* BoardViewModelImp.swift */; };
+		0FD5849C2B47A57500390E2E /* SNote+Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD5849B2B47A57500390E2E /* SNote+Note.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +61,8 @@
 		0FD584932B47966300390E2E /* NewStickyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewStickyViewController.swift; sourceTree = "<group>"; };
 		0FD584952B4796E000390E2E /* NewStickyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewStickyViewModel.swift; sourceTree = "<group>"; };
 		0FD584972B47A09C00390E2E /* RepositoryNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryNote.swift; sourceTree = "<group>"; };
+		0FD584992B47A4FB00390E2E /* BoardViewModelImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardViewModelImp.swift; sourceTree = "<group>"; };
+		0FD5849B2B47A57500390E2E /* SNote+Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SNote+Note.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,7 +185,6 @@
 			isa = PBXGroup;
 			children = (
 				0FD584462B44EEBA00390E2E /* StickyDemo.xcdatamodeld */,
-				0FD584972B47A09C00390E2E /* RepositoryNote.swift */,
 			);
 			path = DB;
 			sourceTree = "<group>";
@@ -218,6 +221,8 @@
 		0FD5847D2B44F34C00390E2E /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				0FD5849D2B47AAF000390E2E /* DTO */,
+				0FD584972B47A09C00390E2E /* RepositoryNote.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -245,6 +250,7 @@
 				0FD584882B46522F00390E2E /* ItemBoardViewModel.swift */,
 				0FD5848A2B4652AB00390E2E /* BoardViewModelDummy.swift */,
 				0FD584912B47910300390E2E /* BoardViewModelOptions.swift */,
+				0FD584992B47A4FB00390E2E /* BoardViewModelImp.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -264,6 +270,14 @@
 				0FD5848F2B4658B000390E2E /* Note.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		0FD5849D2B47AAF000390E2E /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				0FD5849B2B47A57500390E2E /* SNote+Note.swift */,
+			);
+			path = DTO;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -372,12 +386,14 @@
 				0FD584942B47966300390E2E /* NewStickyViewController.swift in Sources */,
 				0FD584922B47910300390E2E /* BoardViewModelOptions.swift in Sources */,
 				0FD5848B2B4652AB00390E2E /* BoardViewModelDummy.swift in Sources */,
+				0FD5849C2B47A57500390E2E /* SNote+Note.swift in Sources */,
 				0FD5847B2B44F33900390E2E /* BoardCollectionViewController.swift in Sources */,
 				0FD584822B44F5D000390E2E /* BoardSceneFactory.swift in Sources */,
 				0FD584852B46509300390E2E /* View+ScreenSize.swift in Sources */,
 				0FD584962B4796E000390E2E /* NewStickyViewModel.swift in Sources */,
 				0FD584402B44EEBA00390E2E /* SceneDelegate.swift in Sources */,
 				0FD584902B4658B000390E2E /* Note.swift in Sources */,
+				0FD5849A2B47A4FB00390E2E /* BoardViewModelImp.swift in Sources */,
 				0FD584482B44EEBA00390E2E /* StickyDemo.xcdatamodeld in Sources */,
 				0FD584892B46522F00390E2E /* ItemBoardViewModel.swift in Sources */,
 				0FD5847F2B44F36A00390E2E /* BoardViewModel.swift in Sources */,

@@ -58,7 +58,7 @@ final class BoardCollectionViewController: UICollectionViewController {
   
   @objc
   func addNewSticky() {
-    let controller = NewStickyViewController(delegate: self)
+    let controller = NewStickyViewController(delegate: self, viewModel: NewStickyViewModelImp(repositoryNote: RepositoryNoteImp()))
     controller.title = "New Sticky"
     let newStickyNavigation = UINavigationController(rootViewController: controller)
     present(newStickyNavigation, animated: true)
@@ -95,6 +95,6 @@ extension BoardCollectionViewController: BoardCollectionViewCellDelegate {
 //MARK: BoardCollectionViewController+NewStickyViewControllerDelegate
 extension BoardCollectionViewController: NewStickyViewControllerDelegate {
   func didFinishSave() {
-    collectionView.reloadData()
+    viewModel.loadNewData()
   }
 }

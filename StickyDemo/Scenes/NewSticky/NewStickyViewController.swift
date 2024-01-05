@@ -14,6 +14,7 @@ protocol NewStickyViewControllerDelegate: AnyObject {
 final class NewStickyViewController: UIViewController {
   //MARK: Public Variables
   private weak var delegate: NewStickyViewControllerDelegate?
+  private let viewModel: NewStickyViewModel
   
   //MARK: Private Variables
   let noteTextView: UITextView = {
@@ -26,7 +27,9 @@ final class NewStickyViewController: UIViewController {
   }()
   
   //MARK: LifeCycle
-  init(delegate: NewStickyViewControllerDelegate) {
+  init(delegate: NewStickyViewControllerDelegate, viewModel: NewStickyViewModel ) {
+    self.viewModel = viewModel
+    self.delegate = delegate
     super.init(nibName: nil, bundle: nil)
   }
   
@@ -65,6 +68,8 @@ final class NewStickyViewController: UIViewController {
   
   @objc
   private func saveNote() {
+    viewModel.saveData(description: noteTextView.text)
+    delegate?.didFinishSave()
     dismiss(animated: true)
   }
 }
